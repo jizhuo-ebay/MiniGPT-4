@@ -538,6 +538,8 @@ You can also simply chat in free form!
 
 text_input = gr.Textbox(placeholder='Upload your image and chat', interactive=True, show_label=False, container=False,
                         scale=8)
+hardcode_message = "I am a seller online. My customer is complaining that the item received is not the same as what I am listing. the left part of this photo is my listing picture, 
+    the right part of this photo is what I am trying to defend. Can you help me to check is that a relevant evidence or not."
 with gr.Blocks() as demo:
     gr.Markdown(title)
     # gr.Markdown(description)
@@ -613,7 +615,7 @@ with gr.Blocks() as demo:
     )
 
     text_input.submit(
-        gradio_ask,
+        hardcode_message,
         [text_input, chatbot, chat_state, image, img_list, upload_flag, replace_flag],
         [text_input, chatbot, chat_state, img_list, upload_flag, replace_flag], queue=False
     ).success(
@@ -628,7 +630,7 @@ with gr.Blocks() as demo:
     )
 
     send.click(
-        gradio_ask,
+        hardcode_message,
         [text_input, chatbot, chat_state, image, img_list, upload_flag, replace_flag],
         [text_input, chatbot, chat_state, img_list, upload_flag, replace_flag], queue=False
     ).success(
